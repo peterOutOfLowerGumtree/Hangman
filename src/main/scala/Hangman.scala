@@ -11,14 +11,13 @@ object Hangman extends App {
   var count = 0
 
   val computerWord = getRandWord
-  println(computerWord)
+//  println(computerWord)
   var mappedWord = computerWord.map(_ -> '_')
-  for ((k, v) <- mappedWord) printf("(%s, %s)\n", k, v)
+//  for ((k, v) <- mappedWord) printf("(%s, %s)\n", k, v)
   var hiddenWord: String = ""
   for ((k, v) <- mappedWord) hiddenWord += v
-
+  hiddenWord = hiddenWord.substring(0,computerWord.length-1)
   hiddenWord.foreach(c => print(c + " "))
-  println()
 
   println()
   printHangedMan()
@@ -60,7 +59,10 @@ object Hangman extends App {
         hiddenWord = hiddenWord.substring(0, i) + computerWord.charAt(i) + hiddenWord.substring(i + 1)
       }
     }
-    if(!computerWord.contains(inputChar)) count = count + 1
+    if(!computerWord.contains(inputChar)) {
+      count = count + 1
+      println("WRONG!")
+    }
   }
 
 
@@ -96,8 +98,6 @@ object Hangman extends App {
       case _ => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \\\n    |\n____|________")
     }
   }
-
-
 
 
 }
