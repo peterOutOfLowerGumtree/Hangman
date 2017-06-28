@@ -5,5 +5,5 @@ CREATE TABLE words (
   word VARCHAR(255) NOT NULL
 );
 
-SHOW VARIABLES LIKE "secure_file_priv";
+# SHOW VARIABLES LIKE "secure_file_priv";
 LOAD DATA LOCAL INFILE 'C:\\Users\\Administrator\\IdeaProjects\\Hangman\\wordList.txt' INTO TABLE words (@col) set word=@col;
