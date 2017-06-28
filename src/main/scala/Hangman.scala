@@ -11,9 +11,7 @@ object Hangman extends App {
   var count = 0
 
   val computerWord = getRandWord
-//  println(computerWord)
   var mappedWord = computerWord.map(_ -> '_')
-//  for ((k, v) <- mappedWord) printf("(%s, %s)\n", k, v)
   var hiddenWord: String = ""
   for ((k, v) <- mappedWord) hiddenWord += v
   hiddenWord = hiddenWord.substring(0,computerWord.length-1)

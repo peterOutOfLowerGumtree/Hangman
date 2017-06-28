@@ -1,13 +1,13 @@
 import java.sql.{Connection, DriverManager}
 
 object ConnectionTest extends App {
-  // connect to the database named "mysql" on port 8889 of localhost
+  // connect to the database named "words" on port 8889 of localhost
   val url = "jdbc:mysql://localhost:3306/words"
   val driver = "com.mysql.jdbc.Driver"
   val username = "root"
   val password = "password"
   var connection:Connection = _
-//  val functions = new Functions
+
   try {
     Class.forName(driver)
     connection = DriverManager.getConnection(url, username, password)
