@@ -8,17 +8,20 @@ object Hangman extends App {
   var connection: Connection = _
   var selectedWord: String = ""
   var randWordId: Int = 0
-  var count = 0
+  var count: Int = 0
+  var wrongLetters: String = ""
 
   val computerWord = getRandWord
   var mappedWord = computerWord.map(_ -> '_')
   var hiddenWord: String = ""
   for ((k, v) <- mappedWord) hiddenWord += v
   hiddenWord = hiddenWord.substring(0,computerWord.length-1)
+
+  println("Welcome to Hangman!\n*******************")
+  printHangedMan()
   hiddenWord.foreach(c => print(c + " "))
 
-  println()
-  printHangedMan()
+  println("\n")
   println("Enter a letter:")
   var input = scala.io.StdIn.readLine
   checkLength(input)
@@ -59,6 +62,7 @@ object Hangman extends App {
     }
     if(!computerWord.contains(inputChar)) {
       count = count + 1
+      wrongLetters += s"$inputChar "
       println("WRONG!")
     }
   }
@@ -85,16 +89,16 @@ object Hangman extends App {
 
   def printHangedMan(): Unit = {
     count match {
-      case 0 => println("     \n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
-      case 1 => println("     _______\n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
-      case 2 => println("     _______\n    |/      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
-      case 3 => println("     _______\n    |/      |\n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
-      case 4 => println("     _______\n    |/      |\n    |      (_)\n    |      \n    |       \n    |      \n    |\n____|________\n")
-      case 5 => println("     _______\n    |/      |\n    |      (_)\n    |       |\n    |       |\n    |      \n    |\n____|________\n")
-      case 6 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|\n    |       |\n    |      \n    |\n____|________\n")
-      case 7 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      \n    |\n____|________\n")
-      case 8 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \n    |\n____|________\n")
-      case _ => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \\\n    |\n____|________\n")
+      case 0 => println(s"     \n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
+      case 1 => println(s"     _______\n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 2 => println(s"     _______\n    |/      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 3 => println(s"     _______\n    |/      |\n    |      \n    |      \n    |       \n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 4 => println(s"     _______\n    |/      |\n    |      (_)\n    |      \n    |       \n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 5 => println(s"     _______\n    |/      |\n    |      (_)\n    |       |\n    |       |\n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 6 => println(s"     _______\n    |/      |\n    |      (_)\n    |      \\|\n    |       |\n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 7 => println(s"     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case 8 => println(s"     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \n    |\n____|________\nWrong guesses: $wrongLetters\n")
+      case _ => println(s"     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \\\n    |\n____|________\nWrong guesses: $wrongLetters\n")
     }
   }
 
