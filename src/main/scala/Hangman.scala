@@ -42,7 +42,7 @@ object Hangman extends App {
     hiddenWord.foreach(c => print(c + " "))
 
     if (!hiddenWord.contains('_')) println("\nYou win!")
-    else if(count == 8) println("You failed! Correct word is "+computerWord)
+    else if(count == 8) println("\n\nYou failed! Correct word is "+computerWord)
     else {
       println()
       println("\nEnter a letter:")
@@ -87,15 +87,15 @@ object Hangman extends App {
 
   def printHangedMan(): Unit = {
     count match {
-      case 0 => println("     \n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________")
-      case 1 => println("     _______\n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________")
-      case 2 => println("     _______\n    |/      |\n    |      \n    |      \n    |       \n    |      \n    |\n____|________")
-      case 3 => println("     _______\n    |/      |\n    |      (_)\n    |      \n    |       \n    |      \n    |\n____|________")
-      case 4 => println("     _______\n    |/      |\n    |      (_)\n    |       |\n    |       |\n    |      \n    |\n____|________")
-      case 5 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|\n    |       |\n    |      \n    |\n____|________")
-      case 6 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      \n    |\n____|________")
-      case 7 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \n    |\n____|________")
-      case _ => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \\\n    |\n____|________")
+      case 0 => println("     \n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
+      case 1 => println("     _______\n    |      \n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
+      case 2 => println("     _______\n    |/      |\n    |      \n    |      \n    |       \n    |      \n    |\n____|________\n")
+      case 3 => println("     _______\n    |/      |\n    |      (_)\n    |      \n    |       \n    |      \n    |\n____|________\n")
+      case 4 => println("     _______\n    |/      |\n    |      (_)\n    |       |\n    |       |\n    |      \n    |\n____|________\n")
+      case 5 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|\n    |       |\n    |      \n    |\n____|________\n")
+      case 6 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      \n    |\n____|________\n")
+      case 7 => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \n    |\n____|________\n")
+      case _ => println("     _______\n    |/      |\n    |      (_)\n    |      \\|/\n    |       |\n    |      / \\\n    |\n____|________\n")
     }
   }
 
