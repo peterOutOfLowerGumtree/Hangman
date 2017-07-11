@@ -1,4 +1,4 @@
-Hangman game
+# Hangman game
 
 Written in IntelliJ
 Words from wordslist.txt added to MySQL database ("words")
